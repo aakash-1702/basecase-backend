@@ -10,7 +10,7 @@ dotenv.config({
 });
 app.use(
   cors({
-    origin: "http://localhost:3000", // your frontend URL
+    origin: "https://take-u-forward-frontend.vercel.app/", // your frontend URL
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
