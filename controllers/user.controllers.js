@@ -175,15 +175,15 @@ const loginController = async (req, res) => {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // ← CRITICAL CHANGE
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      maxAge: 15 * 60 * 1000, // 15 minutes
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // ← CRITICAL CHANGE
+      maxAge: 15 * 60 * 1000,
     });
 
     const userRole = existingUser.role;
@@ -231,12 +231,12 @@ const logOutController = async (req, res) => {
   // for paid version , i would be clearing the refresh token from db as well to preven misuse of refresh token after logout but for free not spinning up the db
   res.clearCookie("accessToken", {
     httpOnly: true,
-    sameSite: "lax", // allows to just delete the cookie by backend call
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     secure: process.env.NODE_ENV === "production",
   });
   res.clearCookie("refreshToken", {
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     secure: process.env.NODE_ENV === "production",
   });
 
