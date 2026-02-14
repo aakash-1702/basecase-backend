@@ -6,11 +6,14 @@ import userRouter from "../routes/user.routes.js";
 import cookieParser from "cookie-parser";
 import adminRouter from "../routes/admin.routes.js";
 dotenv.config({
-  path: "./.env"  // Changed from "./src/.env"
+  path: "./.env", // Changed from "./src/.env"
 });
 app.use(
   cors({
-    origin: "https://take-u-forward-frontend.vercel.app/", // your frontend URL
+    origin: [
+      "https://take-u-forward-frontend.vercel.app",
+      "http://localhost:3000",
+    ], // your frontend URL
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
