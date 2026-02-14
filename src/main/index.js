@@ -6,7 +6,7 @@ import userRouter from "../routes/user.routes.js";
 import cookieParser from "cookie-parser";
 import adminRouter from "../routes/admin.routes.js";
 dotenv.config({
-  path: "./src/.env"
+  path: "./.env"  // Changed from "./src/.env"
 });
 app.use(
   cors({
