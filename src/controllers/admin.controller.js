@@ -1,6 +1,6 @@
 import ApiResponse from "../utils/ApiResponse.js";
 import generateSlug from "../utils/genereateSlug.utils.js";
-import asyncHandler from "../utils/AsyncHandler.js";
+import asyncHandler from "../utils/asyncHandler.js";
 import { prisma } from "../lib/prisma.js";
 
 /* -------------------- ADMIN CHECK -------------------- */
