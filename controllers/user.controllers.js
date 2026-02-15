@@ -177,7 +177,7 @@ const loginController = async (req, res) => {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: isProd,
-      sameSite: isProd ? "none" : "true",
+      sameSite: isProd ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
       partitioned: true, // ← Add this (Express 4.18.3+)
     });
@@ -185,7 +185,7 @@ const loginController = async (req, res) => {
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
       secure: isProd,
-      sameSite: isProd ? "none" : "true",
+      sameSite: isProd ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
       partitioned: true, // ← Add this (Express 4.18.3+)
     });
