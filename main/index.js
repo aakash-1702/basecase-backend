@@ -10,10 +10,7 @@ dotenv.config({
 });
 app.use(
   cors({
-    origin: [
-      "https://take-u-forward-frontend.vercel.app",
-      "http://localhost:3000",
-    ], // your frontend URL
+    origin: ["https://basecase-weld.vercel.app", "http://localhost:3000"], // your frontend URL
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
